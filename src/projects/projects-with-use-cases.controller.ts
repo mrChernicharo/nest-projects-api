@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, Param /*, Delete */ } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param /*, Delete */, Inject } from '@nestjs/common';
 // import { ProjectsService } from './projects.service';
 // import { UpdateProjectDto } from './dto/update-project.dto';
 import { CreateProjectDto } from './dto/create-project.dto';
@@ -10,12 +10,10 @@ import { StartProjectUseCase } from './use-cases/start-project.use-case';
 
 @Controller('projects')
 export class ProjectsWithUseCasesController {
-  constructor(
-    private readonly createProjectUseCase: CreateProjectUseCase,
-    private readonly findAllProjectsUseCase: FindAllProjectsUseCase,
-    private readonly findProjectUseCase: FindProjectUseCase,
-    private readonly startProjectUseCase: StartProjectUseCase,
-  ) {}
+  @Inject(CreateProjectUseCase) private readonly createProjectUseCase: CreateProjectUseCase;
+  @Inject(FindAllProjectsUseCase) private readonly findAllProjectsUseCase: FindAllProjectsUseCase;
+  @Inject(FindProjectUseCase) private readonly findProjectUseCase: FindProjectUseCase;
+  @Inject(StartProjectUseCase) private readonly startProjectUseCase: StartProjectUseCase;
 
   @Get()
   findAll() {
