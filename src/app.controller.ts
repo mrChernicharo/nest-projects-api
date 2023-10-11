@@ -10,7 +10,3 @@ export class AppController {
     return this.appService.getHello();
   }
 }
-
-// @Controller() && @Get() // route => "/"
-// @Controller() && @Get('test') // route => "/test"
-// @Controller('prefix') && @Get('test') // route => "/prefix/test"
