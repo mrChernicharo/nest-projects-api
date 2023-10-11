@@ -13,3 +13,10 @@ nest generate service projects
 nest generate resource projects
 
 ```
+
+importing typeorm
+
+```bash
+npm i typeorm @nestjs/typeorm
+npm i sqlite3 --save
+```
