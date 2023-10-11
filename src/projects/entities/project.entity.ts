@@ -28,6 +28,9 @@ export class Project {
   @Column({ nullable: true, type: 'datetime' })
   due_at: Date | null;
 
+  @Column({ nullable: true, type: 'datetime' })
+  completed_at: Date | null;
+
   @Column({ type: 'simple-enum', default: ProjectStatus.Pending })
   status: ProjectStatus;
 
@@ -38,6 +41,7 @@ export class Project {
       started_at?: Date | null;
       canceled_at?: Date | null;
       due_at?: Date | null;
+      completed_at?: Date | null;
     },
     id?: string,
   ) {
