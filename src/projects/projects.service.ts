@@ -20,18 +20,18 @@ export class ProjectsService {
   }
 
   findAll() {
-    return `This action returns all projects`;
+    return this.projectsRepo.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} project`;
+  findOne(id: string) {
+    return this.projectsRepo.findOneOrFail({ where: { id } });
   }
 
-  update(id: number, updateProjectDto: UpdateProjectDto) {
+  update(id: string, updateProjectDto: UpdateProjectDto) {
     return `This action updates a #${id} project`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} project`;
   }
 }

@@ -1,6 +1,6 @@
 GET http://localhost:3333/projects
 ###
-GET http://localhost:3333/projects/1
+GET http://localhost:3333/projects/63880fc7-690a-4696-9c23-5f0cf5cf932a
 ###
 POST http://localhost:3333/projects
 Content-Type: application/json
