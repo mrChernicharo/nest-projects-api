@@ -1,5 +1,5 @@
 import { Repository } from 'typeorm';
-import { Project, ProjectStatus } from '../entities/project.entity';
+import { Project } from '../entities/project.entity';
 
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -15,18 +15,7 @@ export class StartProjectUseCase {
   async execute(id: string, input: StartProjectDto) {
     const project = await this.projRepo.findOneOrFail({ where: { id } });
 
-    if (project.status === ProjectStatus.Active) {
-      throw Error('Cannot start an activated project');
-    }
-    if (project.status === ProjectStatus.Completed) {
-      throw Error('Cannot start a completed project');
-    }
-    if (project.status === ProjectStatus.Canceled) {
-      throw Error('Cannot start a canceled project');
-    }
-
-    project.started_at = input.started_at;
-    project.status = ProjectStatus.Active;
+    project.start(input.started_at);
 
     return this.projRepo.save(project);
   }

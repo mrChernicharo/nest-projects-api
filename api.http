@@ -20,6 +20,7 @@ GET http://localhost:3333/projects/{{project_id}}
 ###
 
 @project_id = {{createProject.response.body.id}}
+
 POST  http://localhost:3333/projects/{{project_id}}/start
 Content-Type: application/json
 
