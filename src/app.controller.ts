@@ -5,8 +5,12 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Get('test')
   getHello(): string {
     return this.appService.getHello();
   }
 }
+
+// @Controller() && @Get() // route => "/"
+// @Controller() && @Get('test') // route => "/test"
+// @Controller('prefix') && @Get('test') // route => "/prefix/test"
