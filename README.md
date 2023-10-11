@@ -14,7 +14,7 @@ nest generate resource projects
 
 ```
 
-importing typeorm
+installing typeorm and sqlite driver
 
 ```bash
 npm i typeorm @nestjs/typeorm
