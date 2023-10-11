@@ -16,6 +16,9 @@ export class Project {
   @Column()
   name: string;
 
+  @Column({ nullable: true })
+  description: string;
+
   @Column({ nullable: true, type: 'datetime' })
   started_at: Date | null;
 
@@ -25,11 +28,17 @@ export class Project {
   @Column({ nullable: true, type: 'datetime' })
   due_at: Date | null;
 
-  @Column({ type: 'simple-enum' })
+  @Column({ type: 'simple-enum', default: ProjectStatus.Pending })
   status: ProjectStatus;
 
   constructor(
-    props: { name: string; started_at?: Date | null; canceled_at?: Date | null; due_at?: Date | null },
+    props: {
+      name: string;
+      description: string;
+      started_at?: Date | null;
+      canceled_at?: Date | null;
+      due_at?: Date | null;
+    },
     id?: string,
   ) {
     Object.assign(this, props);

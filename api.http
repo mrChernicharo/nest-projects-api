@@ -3,6 +3,22 @@ GET http://localhost:3333/projects
 GET http://localhost:3333/projects/1
 ###
 POST http://localhost:3333/projects
+Content-Type: application/json
+
+{
+  "name": "Project 1",
+  "description": "Description of Project 1"
+}
+###
+POST http://localhost:3333/projects
+Content-Type: application/json
+
+{
+  "name": "Project 1",
+  "description": "Description of Project 1",
+  "started_at": "2023-10-05"
+}
+
 ###
 PATCH  http://localhost:3333/projects/123
 ###
